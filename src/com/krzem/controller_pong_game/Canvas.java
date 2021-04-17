@@ -1,4 +1,4 @@
-package com.krzem.controller_game;
+package com.krzem.controller_pong_game;
 
 
 

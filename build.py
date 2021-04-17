@@ -26,7 +26,7 @@ for r,_,fl in os.walk("src"):
 			ml.append(r+f)
 if (subprocess.run(["javac","-cp",(";" if os.name=="nt" else ":").join(ml),"-d","build"]+jfl).returncode!=0):
 	sys.exit(1)
-with zipfile.ZipFile("build/controller_game.jar","w") as zf:
+with zipfile.ZipFile("build/controller_pong_game.jar","w") as zf:
 	print("Writing: META-INF/MANIFEST.MF")
 	zf.write("manifest.mf",arcname="META-INF/MANIFEST.MF")
 	for r,_,fl in os.walk("build"):
@@ -42,4 +42,4 @@ with zipfile.ZipFile("build/controller_game.jar","w") as zf:
 					print(f"Writing: {e}")
 					zf.writestr(e,jf.read(e))
 if ("--run" in sys.argv):
-	subprocess.run(["java","-jar","build/controller_game.jar"])
+	subprocess.run(["java","-jar","build/controller_pong_game.jar"])
