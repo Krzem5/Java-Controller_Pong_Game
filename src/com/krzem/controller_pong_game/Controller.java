@@ -18,7 +18,6 @@ public class Controller{
 	private HidDevice d;
 	private HidDeviceInfo di;
 	private Map<String,Integer> data;
-	private Map<String,Integer> odata;
 	private CRC32 cs;
 
 
@@ -28,7 +27,6 @@ public class Controller{
 			this.di=di;
 			this.d=PureJavaHidApi.openDevice(this.di);
 			this.data=new HashMap<String,Integer>();
-			this.odata=new HashMap<String,Integer>();
 			this._defaults();
 			Controller cls=this;
 			this.d.setInputReportListener(new InputReportListener(){
